@@ -26,7 +26,7 @@ resource "docker_image" "img_mongo" {
   keep_locally = true
 }
 
-resource "docker_image" "img_trino" {
-  name = "trinodb/trino:407"
+resource "docker_image" "img_starbust" {
+  name = "starburstdata/starburst-enterprise:380-e.17"
   keep_locally = true
 }

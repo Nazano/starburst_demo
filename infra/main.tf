@@ -125,9 +125,9 @@ resource "docker_container" "mysql" {
 }
 
 
-resource "docker_container" "trinodb" {
-  name  = "trinodb"
-  image = docker_image.img_trino.image_id
+resource "docker_container" "starbust" {
+  name  = "starbust"
+  image = docker_image.img_starbust.image_id
   networks_advanced {
     name         = "vnet"
     ipv4_address = var.TRINO_ADDRESS
@@ -139,11 +139,11 @@ resource "docker_container" "trinodb" {
   }
 
   upload {
-    file   = "/etc/trino/catalog/mysql.properties"
+    file   = "/etc/starburst/catalog/mysql.properties"
     source = "connector/mysql.properties"
   }
   upload {
-    file   = "/etc/trino/catalog/mongodb.properties"
+    file   = "/etc/starburst/catalog/mongodb.properties"
     source = "connector/mongodb.properties"
   }
 
